@@ -1,0 +1,750 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --blueBackground: #000b58;
+  --creamBackground: #efece8;
+  --primaryColor: #dda853;
+  --textColor: #d9d9d9;
+  --secondaryTextColor: #424342;
+  --primaryFont: "Sacramento", cursive;
+  --secondaryFont: "Quicksand", sans-serif;
+}
+html {
+  font-size: 12px;
+  scroll-behavior: smooth;
+}
+body {
+  background-color: var(--creamBackground);
+  font-family: var(--secondaryFont);
+}
+.no-scroll {
+  overflow: hidden;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+button {
+  position: relative;
+  z-index: 9999;
+}
+.container {
+  margin: auto;
+  width: 100%;
+  max-width: 425px;
+}
+section {
+  padding: 0 35px;
+  overflow: hidden;
+}
+/* dekorasi */
+/* bunga atas */
+.container section .img-flower-top .frame {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  max-width: 250px;
+  min-width: 100px;
+}
+.container section .img-flower-top .frame:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+
+.container section .img-flower-top .frame:nth-child(2) {
+  top: 0;
+  right: 0;
+}
+.container section .img-flower-top .frame:nth-child(2) {
+  transform: translateX(11px) rotate(90deg);
+}
+.container section .img-flower-top .frame img {
+  width: 100%;
+  height: 100%;
+}
+/* bunga bawah */
+.container section .img-flower-bottom .frame.left img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: 200px;
+}
+.container section .img-flower-bottom .frame.left img:nth-child(1) {
+  z-index: 1;
+  transform: translateX(-10px) rotate(-90deg);
+}
+.container section .img-flower-bottom .frame.left img:nth-child(2) {
+  z-index: 0;
+  max-width: 100px;
+  animation: bunga-bawah-kiri 7s ease-in-out infinite;
+}
+@keyframes bunga-bawah-kiri {
+  0%,
+  100% {
+    transform: translateX(-10px) rotate(0);
+  }
+  50% {
+    transform: translateX(-10px) rotate(6deg) scale(1.1);
+  }
+}
+.container section .img-flower-bottom .frame.right img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  max-width: 200px;
+}
+.container section .img-flower-bottom .frame.right img:nth-child(1) {
+  z-index: 1;
+  transform: translateX(10px) rotate(180deg);
+}
+.container section .img-flower-bottom .frame.right img:nth-child(2) {
+  z-index: 0;
+  max-width: 100px;
+  animation: bunga-bawah-kanan 8s ease-in-out infinite;
+}
+@keyframes bunga-bawah-kanan {
+  0%,
+  100% {
+    transform: translateX(30px) rotate(-35deg);
+  }
+  50% {
+    transform: translateX(30px) rotate(-30deg) scale(1.1);
+  }
+}
+/* akhir dekorasi */
+
+/* pembukaan */
+.container section.pembukaan {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100dvh;
+  background-color: var(--blueBackground);
+  text-align: center;
+}
+.hide {
+  transform: translateY(100%);
+}
+.container section.pembukaan .img-flower-top .frame {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 250px;
+  min-width: 100px;
+}
+.container section.pembukaan .img-flower-top .frame img {
+  width: 100%;
+  height: 100%;
+}
+.container section.pembukaan .wrapper {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.container section.pembukaan .wrapper h4 {
+  font-weight: 400;
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+  color: var(--textColor);
+}
+.container section.pembukaan .wrapper .nama-mempelai {
+  font-size: 6.5rem;
+  font-family: var(--primaryFont);
+  font-weight: 300;
+  color: var(--primaryColor);
+}
+.container section.pembukaan .wrapper .nama-mempelai p:nth-child(2) {
+  font-size: 4rem;
+  color: var(--textColor);
+}
+.container section.pembukaan .wrapper .tamu {
+  font-size: 1.2rem;
+  color: var(--textColor);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.container section.pembukaan .wrapper .tamu .nama-tamu {
+  font-weight: 600;
+  margin-top: 10px;
+  color: var(--primaryColor);
+}
+.container section.pembukaan .wrapper .tamu .nama-tamu span {
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.container section.pembukaan .wrapper button {
+  padding: 10px 14px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  font-weight: 600;
+  background-color: var(--primaryColor);
+  color: var(--textColor);
+  cursor: pointer;
+  box-shadow: 0px 7px 10px -5px var(--primaryColor);
+}
+.container section.pembukaan .img-flower-bottom .frame {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  width: 100%;
+  max-width: 250px;
+  min-width: 100px;
+  transform: translateY(3px) translateX(3px) rotate(180deg);
+}
+.container section.pembukaan .img-flower-bottom .frame img {
+  width: 100%;
+  height: 100%;
+}
+
+/* quotes */
+.container section.quotes {
+  background-image: linear-gradient(#efece8a2, #efece8a2), url(assets/background-white-particle.webp);
+  background-size: contain;
+  background-position: center;
+  position: relative;
+}
+.container section.quotes .wrapper {
+  position: relative;
+  margin: 50px 0;
+  padding: 50px 40px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  color: var(--textColor);
+  background-color: var(--blueBackground);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.container section.quotes .wrapper .img-mempelai .frame {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 50px;
+  padding: 20px;
+  background-color: var(--creamBackground);
+  box-shadow: 1px 0 10px var(--secondaryTextColor);
+}
+.container section.quotes .wrapper .img-mempelai .frame img {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.178);
+}
+.container section.quotes .wrapper .img-mempelai h4 {
+  font-size: 3rem;
+  font-family: var(--primaryFont);
+  font-weight: normal;
+  color: var(--primaryColor);
+}
+.container section.quotes .wrapper .img-mempelai p {
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-style: italic;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container section.quotes .wrapper .img-mempelai p::before {
+  position: absolute;
+  content: "";
+  width: 80px;
+  height: 1.7px;
+  background-color: var(--creamBackground);
+  transform: translateX(-100px);
+}
+.container section.quotes .wrapper .img-mempelai p::after {
+  position: absolute;
+  content: "";
+  width: 80px;
+  height: 1.7px;
+  background-color: var(--creamBackground);
+  transform: translateX(100px);
+}
+.container section.quotes .wrapper h1 {
+  font-size: 4rem;
+  margin-bottom: -20px;
+}
+.container section.quotes .wrapper p strong {
+  font-style: italic;
+}
+
+/* mempelai */
+
+/* mempelai */
+.container section.mempelai {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  background-image: linear-gradient(#efece8a2, #efece8a2), url(assets/background-white-particle.webp);
+  background-size: contain;
+  background-position: center;
+}
+.container section.mempelai .wrapper {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 50px 0;
+  padding: 100px 0;
+  border-radius: 10px;
+  background-color: var(--blueBackground);
+}
+.container section.mempelai .wrapper .img-flower-center .frame {
+  position: relative;
+  width: 100%;
+  min-width: 100px;
+}
+@keyframes bunga-tengah-mempelai {
+  0%,
+  100% {
+    transform: translateX(-100px);
+  }
+  50% {
+    transform: translateX(-100px) rotate(2deg) scale(1.1);
+  }
+}
+.container section.mempelai .wrapper .img-flower-center .frame img {
+  width: 100%;
+  height: 100%;
+  animation: bunga-tengah-mempelai 7s ease-in-out infinite;
+  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.155));
+}
+.container section.mempelai h4 {
+  font-family: var(--primaryFont);
+  font-size: 2.4rem;
+  font-weight: normal;
+  color: var(--primaryColor);
+  margin-bottom: 10px;
+}
+.container section.mempelai .wrapper p {
+  width: 100%;
+  font-size: 1.2rem;
+  color: var(--textColor);
+  margin-bottom: 30px;
+}
+.container section.mempelai .wrapper .data-mempelai .img-mempelai {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 10px;
+}
+.container section.mempelai .wrapper .data-mempelai .img-mempelai .frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+  max-width: 240px;
+  height: 280px;
+  border-radius: 60% / 60%;
+  border: 6px solid var(--primaryColor);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.269);
+  overflow: hidden;
+}
+.container section.mempelai .wrapper .data-mempelai .img-mempelai .frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.container section.mempelai .wrapper .data-mempelai .img-mempelai .decoration {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: translateX(95px) translateY(60px) rotate(-90deg);
+  width: 100%;
+  max-width: 100px;
+}
+.container section.mempelai .wrapper .data-mempelai .img-mempelai .decoration img {
+  width: 100%;
+}
+.container section.mempelai .wrapper .data-mempelai .nama-mempelai {
+  margin-top: 60px;
+}
+.container section.mempelai .wrapper .data-mempelai .nama-mempelai p:nth-child(1) {
+  font-family: var(--primaryFont);
+  font-size: 3rem;
+  color: var(--primaryColor);
+  margin-bottom: 0;
+}
+.container section.mempelai .wrapper .data-mempelai .nama-mempelai p:nth-child(2) {
+  margin-top: 8px;
+  font-size: 1.2rem;
+  color: var(--textColor);
+}
+
+/* jadwal acara */
+.container section.jadwal {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0;
+  background-color: var(--blueBackground);
+}
+.container section.jadwal .wrapper {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 50px 0;
+  padding: 50px 30px;
+  border-radius: 10px;
+  background-size: contain;
+  background-position: center;
+}
+.container section.jadwal .wrapper .card {
+  padding: 30px;
+  background-color: var(--creamBackground);
+  box-shadow: 0 0 10px silver;
+  border-radius: 10px;
+}
+.container section.jadwal .wrapper .akad-nikah {
+  margin-bottom: 50px;
+}
+.container section.jadwal .wrapper h4 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--primaryColor);
+  margin-bottom: 30px;
+}
+.container section.jadwal .wrapper .tanggal {
+  font-size: 3rem;
+  font-family: var(--primaryFont);
+  text-wrap: nowrap;
+  color: var(--blueBackground);
+}
+.container section.jadwal .wrapper .tanggal p span {
+  font-size: 5rem;
+  font-weight: 600;
+  color: var(--primaryColor);
+}
+.container section.jadwal .wrapper .jam {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: var(--secondaryTextColor);
+}
+.container section.jadwal .wrapper .lokasi {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: var(--secondaryTextColor);
+}
+.container section.jadwal .wrapper .lokasi p:nth-child(1) {
+  color: var(--blueBackground);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.container section.jadwal .wrapper button {
+  margin-top: 20px;
+  padding: 10px 14px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  background-color: var(--primaryColor);
+  color: var(--textColor);
+  cursor: pointer;
+  box-shadow: 0px 7px 10px -5px var(--primaryColor);
+}
+.container section.jadwal .wrapper .img-flower-center .frame {
+  position: relative;
+  width: 100%;
+  min-width: 100px;
+}
+.container section.jadwal .wrapper .img-flower-center img {
+  width: 100%;
+  height: 100%;
+  animation: bunga-tengah-jadwal 8s ease-in-out infinite;
+  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.155));
+}
+@keyframes bunga-tengah-jadwal {
+  0%,
+  100% {
+    transform: translateX(100px) rotate(180deg);
+  }
+  50% {
+    transform: translateX(100px) rotate(183deg) scale(1.1);
+  }
+}
+
+/* galeri */
+.container section.galeri {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  background-image: linear-gradient(#efece8a2, #efece8a2), url(assets/background-white-particle.webp);
+  background-size: contain;
+  background-position: center;
+}
+.container section.galeri .wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 50px 0;
+  padding: 50px 0;
+  border-radius: 10px;
+}
+.container section.galeri .wrapper h4 {
+  font-weight: normal;
+  font-family: var(--primaryFont);
+  font-size: 3rem;
+  color: var(--primaryColor);
+  margin-bottom: 30px;
+}
+.container section.galeri .wrapper .img-edit .row {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 5px;
+}
+.container section.galeri .wrapper .img-edit .row .column img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  margin-bottom: 3px;
+  transition: transform 0.2s;
+}
+.container section.galeri .wrapper .img-edit .row .column img:hover {
+  transform: scale(1.1);
+}
+
+/* hadiah */
+.container section.hadiah {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  background-image: linear-gradient(#efece8a2, #efece8a2), url(assets/background-white-particle.webp);
+  background-size: contain;
+  background-position: center;
+  /* padding: 0; */
+}
+.container section.hadiah .wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 50px 0;
+  margin-bottom: 0;
+  padding: 50px 30px;
+  border-radius: 10px;
+  background-color: var(--blueBackground);
+}
+.container section.hadiah .wrapper h4 {
+  font-size: 3rem;
+  font-weight: normal;
+  font-family: var(--primaryFont);
+  color: var(--primaryColor);
+  margin-bottom: 40px;
+}
+.container section.hadiah .wrapper p {
+  font-size: 1.2rem;
+  color: var(--textColor);
+}
+.container section.hadiah .wrapper .rekening {
+  width: 100%;
+  margin-top: 40px;
+  text-align: start;
+}
+.container section.hadiah .wrapper .rekening .card {
+  margin-bottom: 30px;
+}
+.container section.hadiah .wrapper .rekening .card .frame {
+  padding: 20px 18px;
+  border-radius: 5px;
+  background-color: var(--creamBackground);
+  background-image: linear-gradient(#efece8a2, #efece8a2), url(assets/background-white-particle.webp);
+  background-size: contain;
+  background-position: center;
+}
+.container section.hadiah .wrapper .rekening .card .frame .logo-bank {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.container section.hadiah .wrapper .rekening .card .frame .logo-bank img {
+  width: 100%;
+  max-width: 100px;
+}
+
+.container section.hadiah .wrapper .rekening .card .frame .logo-bank .icon span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.container section.hadiah .wrapper .rekening .card .frame .logo-bank .icon span:nth-child(1) {
+  background-color: red;
+  transform: translateX(-25px);
+}
+.container section.hadiah .wrapper .rekening .card .frame .logo-bank .icon span:nth-child(2) {
+  background-color: rgba(255, 255, 0, 0.55);
+}
+.container section.hadiah .wrapper .rekening .card .frame .nomor-rekening p {
+  color: var(--blueBackground);
+  font-family: "Space Mono", monospace;
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+.container section.hadiah .wrapper .rekening .card .frame button {
+  margin-top: 15px;
+  padding: 10px 14px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  background-color: var(--primaryColor);
+  color: var(--textColor);
+  cursor: pointer;
+  box-shadow: 0px 7px 10px -5px var(--primaryColor);
+}
+
+/* penutup */
+.container section.penutup {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: linear-gradient(#efece8a2, #efece8a2), url(assets/background-white-particle.webp);
+  background-size: cover;
+  background-position: center;
+  padding-top: 100px;
+}
+.container section.penutup .wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 50px 30px;
+  margin: 50px 0;
+  border-radius: 10px;
+  background-color: var(--blueBackground);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.container section.penutup .wrapper .quotes {
+  font-style: italic;
+}
+.container section.penutup .wrapper .img-mempelai .frame {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 50px;
+  padding: 20px;
+  background-color: var(--creamBackground);
+  box-shadow: 1px 0 10px var(--secondaryTextColor);
+}
+.container section.penutup .wrapper .img-mempelai .frame img {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.178);
+}
+.container section.penutup .wrapper h4 {
+  color: var(--primaryColor);
+  font-family: var(--primaryFont);
+  font-size: 3rem;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+.container section.penutup .wrapper p {
+  font-size: 1.2rem;
+  color: var(--textColor);
+  margin-bottom: 30px;
+}
+
+/* musik */
+#music-button {
+  position: fixed;
+  z-index: 9999;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ffffffcc;
+  backdrop-filter: blur(5px);
+  font-size: 24px;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+#music-button:hover {
+  transform: scale(1.15);
+}
+
+#music-button.playing {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* copyright */
+.container section.copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--blueBackground);
+  text-align: center;
+  padding: 10px 0;
+}
+.container section.copyright a {
+  color: var(--textColor);
+  font-size: 1rem;
+  text-decoration: none;
+}
+.container section.copyright:hover a {
+  text-decoration: underline;
+}

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Link Generator Undangan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Birthstone&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        font-size: 12px;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Roboto", sans-serif;
+        background-color: #bbdbee;
+        height: 100vh;
+      }
+
+      .box-generate-link {
+        max-width: 450px;
+        width: 100%;
+        min-height: 100vh;
+        margin: 0 10px;
+        background-color: #fff;
+        padding: 30px 20px;
+      }
+
+      h2 {
+        margin-bottom: 10px;
+        text-align: center;
+        font-size: 1.5rem;
+      }
+
+      .box-generate-link div p {
+        width: 100%;
+        text-align: center;
+        color: #828282;
+      }
+
+      .input-nama-tamu {
+        margin-top: 30px;
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-size: 0.95rem;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"] {
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #005a8d;
+        border-radius: 5px;
+        width: 100%;
+        font-size: 1rem;
+      }
+
+      input[type="text"]:focus {
+        border-color: #1b597dc2;
+        outline: none;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        background-color: #005a8d;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      button:hover {
+        background-color: #054065;
+      }
+
+      .hasil-link p {
+        margin: 10px 0 5px;
+        font-weight: 500;
+      }
+
+      .hasil-link input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+        margin-bottom: 10px;
+        margin-bottom: 10px;
+      }
+
+      .hasil-link button {
+        background: none;
+        border: 1px solid rgba(128, 128, 128, 0.374);
+        margin-bottom: 10px;
+        color: #000;
+      }
+      .hasil-link a {
+        display: block;
+        text-align: center;
+        background-color: #008d31;
+        color: #fff;
+        padding: 12px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: background-color 0.2s;
+      }
+
+      .hasil-link a:hover {
+        background-color: #00752a;
+      }
+
+      .footer {
+        margin-top: 50px;
+        font-size: 1rem;
+      }
+      @media screen and (max-width: 480px) {
+        .box-generate-link {
+          padding: 20px 15px;
+        }
+
+        h2 {
+          font-size: 1.3rem;
+        }
+
+        button,
+        .hasil-link a {
+          font-size: 0.95rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box-generate-link">
+      <div>
+        <h2>Generator Link Undangan</h2>
+        <p>Buat dan sebar link dengan cepat</p>
+      </div>
+
+      <div class="input-nama-tamu">
+        <div class="input">
+          <label for="nama">Masukkan Nama Tamu:</label>
+          <input type="text" id="nama" placeholder="Contoh: Andi Saputra" />
+        </div>
+        <button onclick="generateLink()">Buat Link</button>
+      </div>
+      <div class="hasil-link">
+        <label for="hasil-link">Hasil Link:</label>
+        <input type="text" id="hasilLink" readonly />
+        <button id="salinBtn">Salin Link</button>
+        <a id="waShare" target="_blank">Kirim via WhatsApp</a>
+      </div>
+      <div class="footer">
+        <p>Copyright BestWeeding.id</p>
+      </div>
+    </div>
+
+    <script>
+      function generateLink() {
+        const nama = document.getElementById("nama").value.trim();
+        if (!nama) {
+          alert("Tolong isi nama tamu dulu!");
+          return;
+        }
+
+        const encodedNama = encodeURIComponent(nama);
+        const linkUndangan = `http://127.0.0.1:5500/index.html?to=${encodedNama}`;
+
+        document.getElementById("hasilLink").value = linkUndangan;
+
+        const waPesan = `Assalamu’alaikum Warahmatullahi Wabarakatuh%0A%0ADengan penuh rasa syukur dan bahagia, kami mengundang Bapak/Ibu/Saudara/i *${nama}* untuk menghadiri acara pernikahan kami.%0A%0AMerupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak /Ibu/Saudara/i berkenan hadir dan memberikan doa restu.%0A%0ABerikut link undangannya:%0A${encodeURIComponent(
+          linkUndangan
+        )}%0A%0AAtas kehadiran dan doa restunya, kami ucapkan terima kasih.%0A%0AWassalamu’alaikum Warahmatullahi Wabarakatuh`;
+
+        console.log(waPesan);
+        const waLink = `https://wa.me/?text=${waPesan}`;
+
+        document.getElementById("waShare").href = waLink;
+        document.getElementById("waShare").innerText = "Kirim via WhatsApp";
+      }
+
+      document.getElementById("salinBtn").addEventListener("click", function () {
+        const link = document.getElementById("hasilLink");
+        if (!link.value) return alert("Silakan buat link dulu.");
+
+        link.select();
+        link.setSelectionRange(0, 99999); // Untuk iOS
+
+        navigator.clipboard
+          .writeText(link.value)
+          .then(() => {
+            alert("Link berhasil disalin! 🎉");
+          })
+          .catch(() => {
+            alert("Ups! Gagal menyalin link.");
+          });
+      });
+    </script>
+  </body>
+</html>
