@@ -468,9 +468,12 @@ section {
   border: none;
   outline: none;
   background-color: var(--primaryColor);
-  color: var(--textColor);
   cursor: pointer;
   box-shadow: 0px 7px 10px -5px var(--primaryColor);
+}
+.container section.jadwal .wrapper button a {
+  text-decoration: none;
+  color: var(--textColor);
 }
 .container section.jadwal .wrapper .img-flower-center .frame {
   position: relative;
